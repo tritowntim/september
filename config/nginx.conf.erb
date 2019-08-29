@@ -55,7 +55,7 @@ http {
       proxy_intercept_errors  on;
       proxy_redirect          off;
       # proxy_pass            http://$s3_bucket/documentation$url_full;
-      proxy_pass              https://$webflow/wf$url_full
+      proxy_pass              https://$webflow/$url_full
     }
 
 		location / {
