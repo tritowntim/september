@@ -51,7 +51,7 @@ http {
       proxy_buffering         off;
       proxy_intercept_errors  on;
       proxy_redirect          off;
-      proxy_pass              https://$webflow/$url_full/;
+      proxy_pass              https://$webflow/;
     }
 
     location ~* ^/wf(.*) {
