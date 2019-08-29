@@ -35,6 +35,26 @@ http {
 		server_name enigmatic-earth-94228.herokuapp.com;
 		keepalive_timeout 5;
 
+    location = /plan-not {
+      set $webflow          'plan-not.webflow.io';
+      set $url_full         '$1';
+      resolver              8.8.8.8 valid=300s;
+      resolver_timeout      10s;
+
+      index index.html;
+
+      proxy_hide_header       Set-Cookie;
+      proxy_set_header        X-Real-IP $remote_addr;
+      proxy_set_header        X-Forwarded-For $proxy_add_x_forwarded_for;
+      proxy_set_header        Host $webflow;
+      proxy_ignore_headers    "Set-Cookie";
+      proxy_buffering         off;
+      proxy_intercept_errors  on;
+      proxy_redirect          off;
+      proxy_pass              https://$webflow/;
+    }
+
+
     location = /two {
       set $webflow          'tims-blank-site-631768.webflow.io';
       set $url_full         '$1';
