@@ -35,7 +35,7 @@ http {
 		server_name enigmatic-earth-94228.herokuapp.com;
 		keepalive_timeout 5;
 
-    location ~* ^/wf(.*) {
+    location /wf/ {
       # set $s3_bucket      'docs.codeship.io.s3-website-us-east-1.amazonaws.com';
       set $webflow          'tims-blank-site-631768.webflow.io';
       set $url_full         '$1';
